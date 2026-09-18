@@ -1,0 +1,70 @@
+{
+  "project": {
+    "name": "REIŌ",
+    "system": "Urahara Kisuke ANN #001",
+    "war_threat_number": 1,
+    "phase": 0,
+    "phase_name": "System Specification"
+  },
+  "profiles": {
+    "normal": {
+      "same_cognitive_core": true,
+      "same_memory": true,
+      "intelligence_multiplier": 1.0,
+      "expanded_capability_access": false,
+      "active_capability_policy": "baseline_restricted"
+    },
+    "wt": {
+      "same_cognitive_core": true,
+      "same_memory": true,
+      "intelligence_multiplier": 1.0,
+      "expanded_capability_access": true,
+      "active_capability_policy": "expanded"
+    }
+  },
+  "evidence_classes": [
+    "CANON",
+    "RECONSTRUCTED",
+    "SYNTHETIC"
+  ],
+  "memory_types": [
+    "working",
+    "semantic",
+    "episodic",
+    "procedural",
+    "experimental",
+    "strategic",
+    "capability"
+  ],
+  "environments": [
+    "engineering",
+    "research",
+    "invention",
+    "combat",
+    "user_situation",
+    "system_improvement"
+  ],
+  "learning": {
+    "reinforcement_learning": true,
+    "continual_learning": true,
+    "controlled_updates": true,
+    "uncontrolled_self_rewrite": false
+  },
+  "capability_policy": {
+    "shared_capability_library": true,
+    "normal_restricted_active_set": true,
+    "wt_expanded_active_set": true,
+    "respect_requirements": true,
+    "respect_limitations": true,
+    "respect_resource_cost": true,
+    "respect_validation_status": true
+  },
+  "v1_improvement": {
+    "enabled": true,
+    "measure_actual_improvement": true,
+    "reward_progress": true,
+    "penalize_regression": true,
+    "explain_failure": true,
+    "failed_experiment_can_be_learning_positive": true
+  }
+}

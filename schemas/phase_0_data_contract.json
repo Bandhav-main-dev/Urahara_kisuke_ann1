@@ -1,0 +1,99 @@
+{
+  "phase": 0,
+  "record_types": {
+    "source": [
+      "source_id",
+      "source_type",
+      "title",
+      "publisher",
+      "location",
+      "retrieval_date",
+      "hash",
+      "reliability"
+    ],
+    "evidence": [
+      "evidence_id",
+      "source_id",
+      "character_id",
+      "source_location",
+      "source_text",
+      "evidence_class",
+      "validation_status"
+    ],
+    "cognitive_episode": [
+      "episode_id",
+      "situation",
+      "objective",
+      "known_information",
+      "unknown_information",
+      "constraints",
+      "resources",
+      "possible_actions",
+      "observed_action",
+      "observable_evidence",
+      "outcome",
+      "adaptation",
+      "lesson",
+      "evidence_refs"
+    ],
+    "decision": [
+      "decision_id",
+      "situation",
+      "available_information",
+      "constraints",
+      "possible_actions",
+      "chosen_action",
+      "observable_reason",
+      "risk",
+      "expected_outcome",
+      "actual_outcome",
+      "adaptation"
+    ],
+    "invention": [
+      "invention_id",
+      "name",
+      "purpose",
+      "mechanism",
+      "requirements",
+      "resources",
+      "limitations",
+      "risks",
+      "applications",
+      "failures",
+      "compatible_capabilities",
+      "validation_status",
+      "evidence_refs"
+    ],
+    "experiment": [
+      "experiment_id",
+      "hypothesis",
+      "assumptions",
+      "inputs",
+      "tools",
+      "expected_result",
+      "actual_result",
+      "failure_conditions",
+      "uncertainty",
+      "conclusion",
+      "follow_up"
+    ],
+    "system_improvement_episode": [
+      "episode_id",
+      "initial_system_version",
+      "objective",
+      "constraints",
+      "observations",
+      "hypotheses",
+      "actions",
+      "experiments",
+      "final_system_version",
+      "performance_before",
+      "performance_after",
+      "improvement",
+      "reward",
+      "penalty",
+      "failure_explanation",
+      "lesson"
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.ruff_cache/
+
+# Jupyter / Colab
+.ipynb_checkpoints/
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+github_token.txt
+
+# Runtime
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
