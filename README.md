@@ -16,7 +16,7 @@ fictional thoughts.
 
 **Phase:** 0 — System Specification
 
-**Status:** PHASE 0 VALIDATED LOCALLY
+**Status:** VALIDATING
 
 **Repository:** `https://github.com/Bandhav-main-dev/Urahara_kisuke_ann1.git`
 
@@ -95,20 +95,3 @@ A phase is successful only after:
 ## Development Principle
 
 **Data first. Evidence first. Validation first. Learning second. ANN last.**
-
----
-
-## Phase 0 Validation Record
-
-**Local validation:** PASS
-
-**Validated UTC:** `2026-09-18T09:18:03.986185+00:00`
-
-**Commit:** `8af24394052e5762b93d11959b5138c0e15721a7`
-
-**Passes:** `62`
-
-**Warnings:** `0`
-
-**Failures:** `0`
-

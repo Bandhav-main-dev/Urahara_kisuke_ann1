@@ -2,10 +2,10 @@
   "project": "REIŌ — Urahara Kisuke ANN #001",
   "phase": 0,
   "phase_name": "System Specification",
-  "status": "VALIDATED",
+  "status": "LOCAL_VALIDATION_PASSED",
   "repository": "https://github.com/Bandhav-main-dev/Urahara_kisuke_ann1.git",
   "branch": "main",
-  "created_at_utc": "2026-09-18T09:18:03.903689+00:00",
+  "created_at_utc": "2026-09-18T09:19:09.514773+00:00",
   "artifacts": [
     "README.md",
     "docs/phases/PHASE_0_SYSTEM_SPECIFICATION.md",
@@ -23,19 +23,14 @@
     "intelligence_multiplier_wt": 1.0,
     "passes": 58,
     "warnings": 0,
-    "failures": 0,
-    "git_commit_created": true
+    "failures": 0
   },
   "artifact_sha256": {
     "README.md": "77fc9add01593468ea304910db8021865b092818e6c730b668c258c5c1d863c1",
     ".gitignore": "e9a10d91affa0d3a5c655074adce8ce9b444fea4badf2eacbedbc86d16b56c02",
     "docs/phases/PHASE_0_SYSTEM_SPECIFICATION.md": "fe88cdf4343a1e3d266a1727a2cfdd1f03a1adac9170757a5a658e867896aee2",
     "config/phase_0_config.json": "22556fe0f8123aefde77ad855f0f843174a91a4fc0f6734303e44368d5fa934e",
-    "config/phase_0_manifest.json": "8e0bf8ae9c576cc7e8a1fa0ec277ddecebf3799d44ee1cceb2ee7e9c5405c61d",
+    "config/phase_0_manifest.json": "f3ab8f9af3ac609bc7f882f43b28a8f60c222663c9df26e09a5e1d49aa18af3a",
     "schemas/phase_0_data_contract.json": "a0d3fbc5ef12ae316c1e4e7491291ebea453582d424d23b9f1ba75f86338cfe9"
-  },
-  "git": {
-    "branch": "main",
-    "commit": "b160ccac7f917eff5e72e37fcad71695fe1f1719"
   }
 }
