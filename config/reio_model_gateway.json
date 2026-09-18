@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "project": {
+    "name": "REIŌ — URAHARA KISUKE ANN #001",
+    "purpose": "Computational modeling of observable reasoning patterns derived from source evidence."
+  },
+  "architecture": {
+    "controller": "reio_controller",
+    "gateway": "reio_model_gateway",
+    "learning_boundary": {
+      "source_facts": true,
+      "derived_cognitive_patterns": true,
+      "ann_representation": true,
+      "reinforcement_learning": "future_phase",
+      "self_learning": "future_phase"
+    }
+  },
+  "providers": {
+    "openrouter": {
+      "enabled": true,
+      "endpoint": "https://openrouter.ai/api/v1",
+      "model": "anthropic/claude-sonnet-4.5",
+      "credential_source": "runtime_prompt"
+    },
+    "omniroute": {
+      "enabled": false,
+      "endpoint": null,
+      "credential_source": null
+    },
+    "ollama": {
+      "enabled": false,
+      "endpoint": "http://127.0.0.1:11434",
+      "model": "qwen3:latest",
+      "credential_source": "none"
+    }
+  },
+  "routing_policy": {
+    "primary": "openrouter",
+    "fallbacks": [
+      "openrouter"
+    ],
+    "max_retries": 2,
+    "timeout_seconds": 60,
+    "require_source_grounding": true,
+    "allow_unverified_generation": false
+  },
+  "security": {
+    "api_keys_persisted": false,
+    "api_keys_logged": false,
+    "runtime_credentials_only": true
+  },
+  "created_at": "2026-09-18T10:13:56.960425",
+  "run_id": "20260918_101304"
+}
