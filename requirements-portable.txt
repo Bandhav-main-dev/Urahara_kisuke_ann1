@@ -1,0 +1,5 @@
+# REIŌ portable runtime dependencies
+# Ollama is an external service.
+# Model weights stay outside Git.
+
+requests>=2.31,<3
