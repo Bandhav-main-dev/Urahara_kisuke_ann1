@@ -378,3 +378,156 @@ class REIOModelGateway:
                 None
 
         }
+    def call_native(
+        self,
+        messages,
+        model,
+        provider=None,
+        temperature=0,
+        max_tokens=100,
+        timeout=180,
+    ):
+        """
+        Native REIŌ provider-aware gateway.
+
+        Supported providers:
+          - openrouter
+          - ollama
+
+        Qwen3 explicitly disables thinking for short ANN pipeline
+        requests so the generation budget is not consumed by reasoning.
+        """
+        import os
+        import requests
+
+        if not model:
+            raise ValueError("model is required")
+
+        if provider is None:
+            if model.startswith("anthropic/") or model.startswith("openai/"):
+                provider = "openrouter"
+            else:
+                provider = "ollama"
+
+        provider = str(provider).strip().lower()
+
+        # --------------------------------------------------------------
+        # OPENROUTER
+        # --------------------------------------------------------------
+        if provider == "openrouter":
+
+            api_key = os.environ.get(
+                "OPENROUTER_API_KEY",
+                ""
+            ).strip()
+
+            if not api_key:
+                raise RuntimeError(
+                    "OPENROUTER_API_KEY is not available in runtime."
+                )
+
+            headers = {
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json",
+                "HTTP-Referer": (
+                    "https://github.com/"
+                    "Bandhav-main-dev/Urahara_kisuke_ann1"
+                ),
+                "X-Title": "REIO Urahara Kisuke ANN #001",
+            }
+
+            payload = {
+                "model": model,
+                "messages": messages,
+                "temperature": temperature,
+                "max_tokens": max_tokens,
+            }
+
+            response = requests.post(
+                "https://openrouter.ai/api/v1/chat/completions",
+                headers=headers,
+                json=payload,
+                timeout=timeout,
+            )
+
+            response.raise_for_status()
+
+            data = response.json()
+
+            choices = data.get("choices") or []
+
+            if not choices:
+                raise RuntimeError(
+                    f"OpenRouter returned no choices: {data}"
+                )
+
+            message = choices[0].get("message") or {}
+
+            content = message.get("content") or ""
+
+            if not content:
+                raise RuntimeError(
+                    "OpenRouter returned empty content."
+                )
+
+            return {
+                "provider": "openrouter",
+                "model": model,
+                "content": content,
+                "raw": data,
+            }
+
+        # --------------------------------------------------------------
+        # OLLAMA
+        # --------------------------------------------------------------
+        if provider == "ollama":
+
+            payload = {
+                "model": model,
+                "messages": messages,
+                "stream": False,
+                "options": {
+                    "temperature": temperature,
+                    "num_predict": max_tokens,
+                },
+            }
+
+            # IMPORTANT:
+            # Qwen3 previously consumed the entire small generation
+            # budget in its thinking channel.
+            if model.startswith("qwen3"):
+                payload["think"] = False
+
+            response = requests.post(
+                "http://127.0.0.1:11434/api/chat",
+                json=payload,
+                timeout=timeout,
+            )
+
+            response.raise_for_status()
+
+            data = response.json()
+
+            message = data.get("message") or {}
+
+            content = message.get("content") or ""
+
+            # Compatibility with generate-style responses.
+            if not content:
+                content = data.get("response") or ""
+
+            if not content:
+                raise RuntimeError(
+                    f"Ollama returned empty content: {data}"
+                )
+
+            return {
+                "provider": "ollama",
+                "model": model,
+                "content": content,
+                "raw": data,
+            }
+
+        raise ValueError(
+            f"Unsupported native provider: {provider}"
+        )
