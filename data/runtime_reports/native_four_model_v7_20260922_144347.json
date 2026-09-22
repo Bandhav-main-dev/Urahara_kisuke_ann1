@@ -1,0 +1,62 @@
+{
+  "project": "REI\u014c \u2014 URAHARA KISUKE ANN #001",
+  "restore": "V7",
+  "timestamp_utc": "2026-09-22T14:43:47.966330+00:00",
+  "git": {
+    "branch": "feature/reio-gh3-r5-omniroute-build-20260918_121518",
+    "head": "bfd3efe98eb23ae31feefb9f4c748948d2b0a15a",
+    "expected_head": "bfd3efe98eb23ae31feefb9f4c748948d2b0a15a",
+    "remote_main": "0f522d95652e3311bec2e25a576c5b7f058c7c4b",
+    "expected_main": "0f522d95652e3311bec2e25a576c5b7f058c7c4b",
+    "push": false,
+    "merge": false,
+    "main_checkout": false
+  },
+  "gpu": {
+    "name": "Tesla T4",
+    "status": "Tesla T4, 10609 MiB, 15360 MiB, 83 %"
+  },
+  "ollama": {
+    "version": "ollama version is 0.34.2",
+    "models": [
+      "llama3.1:8b",
+      "qwen3:latest"
+    ]
+  },
+  "architecture": {
+    "native_gateway": true,
+    "sequential": true,
+    "omniroute_active": false,
+    "ruflo_active": false
+  },
+  "model_tests": [
+    {
+      "model": "Claude Sonnet 4.5",
+      "provider": "openrouter",
+      "model_id": "anthropic/claude-sonnet-4.5",
+      "status": "PASS",
+      "elapsed_seconds": 2.484
+    },
+    {
+      "model": "GPT-5.4",
+      "provider": "openrouter",
+      "model_id": "openai/gpt-5.4",
+      "status": "PASS",
+      "elapsed_seconds": 1.341
+    },
+    {
+      "model": "Qwen3",
+      "provider": "ollama",
+      "model_id": "qwen3:latest",
+      "status": "PASS",
+      "elapsed_seconds": 24.769
+    },
+    {
+      "model": "Llama 3.1",
+      "provider": "ollama",
+      "model_id": "llama3.1:8b",
+      "status": "PASS",
+      "elapsed_seconds": 23.636
+    }
+  ]
+}
